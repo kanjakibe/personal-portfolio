@@ -32,6 +32,8 @@ body {
     background-image: url(images/bg7.jpg);
     background-size: cover;
     background-position: center;
+    position: relative;
+    z-index: 3;
 }
 
 .container {
@@ -47,7 +49,7 @@ nav {
 
 .logo {
     width: 140px;
-
+    
 }
 
 nav ul li {
@@ -61,6 +63,7 @@ nav ul li a {
     text-decoration: none;
     font-size: 18px;
     position: relative;
+    z-index: 3;
 }
 
 nav ul li a::after {
@@ -113,6 +116,8 @@ nav ul li a:hover::after {
     width: 100%;
     border-radius: 15px;
     box-shadow: 0 3px 15px rgba(0, 0, 0, 0.9);
+    position: relative;
+    z-index: 3;
 }
 
 .about-col-2 {
@@ -136,6 +141,7 @@ nav ul li a:hover::after {
     font-weight: 500;
     cursor: pointer;
     position: relative;
+    z-index: 3;
 }
 
 .tab-links::after {
@@ -192,7 +198,7 @@ nav ul li a:hover::after {
     border-radius: 10px;
     transition: background 0.5s, transform 0.5s;
     box-shadow: 0 3px 15px rgba(0, 0, 0, 0.9);
-
+    z-index: 3;
 }
 
 .services-list div i {
@@ -244,7 +250,8 @@ nav ul li a:hover::after {
     border-radius: 10px;
     display: block;
     transition: transform 0.5s;
-    
+    position: relative;
+    z-index: 3;
 }
 
 .layer {
@@ -264,6 +271,7 @@ nav ul li a:hover::after {
     text-align: center;
     font-size: 14px;
     transition: height 0.5s;
+    z-index: 3;
 }
 
 .layer h3 {
@@ -306,37 +314,46 @@ nav ul li a:hover::after {
     transition: background 0.5s;
     box-shadow: 0 3px 15px rgba(0, 0, 0, 0.9);
     background: var(--color-2);
+    
+    
 }
 
 .btn:hover {
     background: #ff004f;
+    
 }
 
 /*--------------------Contact---------------------------------*/
 .contact-left p {
     color: var(--color-4);
+    
 }
 
 .contact-left {
     flex-basis: 35%;
+
 }
 
 .contact-right {
     flex-basis: 60%;
+    z-index: 3;
 }
 
 .contact-left p {
     margin-top: 30px;
+    
 }
 
 .contact-left p i {
     color: #ff004f;
     margin-right: 15px;
     font-size: 25px;
+    
 }
 
 .social-icons {
     margin-top: 30px;
+    
 }
 
 .social-icons a {
@@ -346,11 +363,15 @@ nav ul li a:hover::after {
     color: var(--color-3);
     display: inline-block;
     transition: transform 0.5s;
+    position: relative;
+    z-index: 3;
+    
 }
 
 .social-icons a:hover {
     color: #ff004f;
     transform: translateY(-5px);
+    
 }
 
 .contact-right form {
@@ -389,6 +410,9 @@ form .btn2 {
     background: #262626;
     font-weight: 300;
     margin-top: 20px;
+    position: relative;
+    z-index: 3;
+    
 }
 
 /*-------------------------Media queries----------------------------*/
@@ -474,6 +498,7 @@ nav .fas {
     
     .copyright {
         font-size: 14px;
+        
     }
 
     .theme-btn {
@@ -490,6 +515,7 @@ nav .fas {
         align-items: center;
         box-shadow: 0 3px 15px rgba(0,0,0,0.3);
         transition: all 0.1s ease-in-out;
+        
         
     }
 }
@@ -517,6 +543,7 @@ nav .fas {
     align-items: center;
     box-shadow: 0 3px 15px rgba(0,0,0,0.3);
     transition: all 0.1s ease-in-out;
+    z-index: 3;
     
 }
 
@@ -548,6 +575,54 @@ nav .fas {
     --color-5: #262626;
 }
 
+
+/* Dark Mode animation */
+body {
+    background: linear-gradient(45deg, #ff004f, #262626, #080808);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* Light Mode Animation */
+
+body.light-mode {
+    background: linear-gradient(45deg, rgb(72, 4, 34), #ffffff, #1a1919);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
 
 
 

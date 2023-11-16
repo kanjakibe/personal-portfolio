@@ -8,9 +8,14 @@
     <link href="style.css" rel="stylesheet">
     <link href="images/favicon.png" rel="icon" type="image/x-icon">
     <script src="https://kit.fontawesome.com/c57e9acf4a.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/particles.js/latest/particles.min.js"></script>
+
+
     
 </head>
 <body>
+    <div id="particles-js"></div> <!-- Particles Effect--> 
 <div id="header">
     <div class="container">
         <nav>
@@ -18,7 +23,7 @@
             <ul id="sidemenu">
                 <li><a href="#header">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
+                <li><a href="#services">Certificates</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <i class="fas fa-times" onclick="closemenu()"></i>
@@ -40,6 +45,8 @@
             <div class="about-col-1">
                 <img src="images/photo.jpg">
             </div>
+
+
             <div class="about-col-2">
                 <h1 class="sub-title">About Me</h1>
                 <p>My interests are in Web development, and I love to create beautiful and performant products with delightful user experiences.</p>
@@ -85,8 +92,7 @@
                 <div class="tab-contents" id="education">
                     <ul>
                         <li><span>School: </span><br>Jomo Kenyatta University of Agriculture and Technology (JKUAT)</li>
-                        <li><span>Course: </span><br>Bachelor of Business Information Technology</li>
-                        <li><span> </span><br>Degree</li>
+                        <li><span>Course: </span><br>Bachelor of Business Information Technology (B.BIT)</li>
                         <li><span>Year:</span><br>2016 - 2020</li>
                         
                     </ul>
@@ -161,7 +167,7 @@
                 </div>
             </div>
         </div>
-        <a href="#" class="btn">See More</a>
+        <!-- <a href="#" class="btn">See More</a> -->
     </div>
 </div>
 
@@ -191,15 +197,146 @@
             </div>
         </div>
     </div>
+
+     
+
     <div class="copyright">
         <p>Copyright &copy; Nelson Kanja</p>
     </div>
 </div>
 
+
 <!---------------------theme button------------------------------------->
 <div class="theme-btn">
     <i class="fas fa-adjust"></i>
 </div>
+
+<!-- Particles Effect-->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    particlesJS('particles-js', {
+        particles: {
+            number: {
+                value: 80,
+                density: {
+                    enable: true,
+                    value_area: 800
+                }
+            },
+            color: {
+                value: '#ffffff'
+            },
+            shape: {
+                type: 'circle',
+                stroke: {
+                    width: 0,
+                    color: '#000000'
+                },
+                polygon: {
+                    nb_sides: 5
+                },
+                image: {
+                    src: 'img/github.svg',
+                    width: 100,
+                    height: 100
+                }
+            },
+            opacity: {
+                value: 0.5,
+                random: false,
+                anim: {
+                    enable: false,
+                    speed: 1,
+                    opacity_min: 0.1,
+                    sync: false
+                }
+            },
+            size: {
+                value: 3,
+                random: true,
+                anim: {
+                    enable: false,
+                    speed: 40,
+                    size_min: 0.1,
+                    sync: false
+                }
+            },
+            line_linked: {
+                enable: true,
+                distance: 150,
+                color: '#ffffff',
+                opacity: 0.4,
+                width: 1
+            },
+            move: {
+                enable: true,
+                speed: 6,
+                direction: 'none',
+                random: false,
+                straight: false,
+                out_mode: 'out',
+                bounce: false,
+                attract: {
+                    enable: false,
+                    rotateX: 600,
+                    rotateY: 1200
+                }
+            }
+        },
+        interactivity: {
+            detect_on: 'canvas',
+            events: {
+                onhover: {
+                    enable: true,
+                    mode: 'repulse'
+                },
+                onclick: {
+                    enable: true,
+                    mode: 'push'
+                },
+                resize: true
+            },
+            modes: {
+                grab: {
+                    distance: 400,
+                    line_linked: {
+                        opacity: 1
+                    }
+                },
+                bubble: {
+                    distance: 400,
+                    size: 40,
+                    duration: 2,
+                    opacity: 8,
+                    speed: 3
+                },
+                repulse: {
+                    distance: 200
+                },
+                push: {
+                    particles_nb: 4
+                },
+                remove: {
+                    particles_nb: 2
+                }
+            }
+        },
+        retina_detect: true
+    });
+    });
+</script>
+
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+</script>
 
 <script>
     var tablinks = document.getElementsByClassName("tab-links");
@@ -225,9 +362,19 @@
     function openmenu() {
         sidemenu.style.right = "0";
     }
+
     function closemenu() {
         sidemenu.style.right = "-200px";
     }
+
+    // Close the side menu when clicking on an option
+    var sidemenuItems = document.querySelectorAll("#sidemenu a");
+
+    sidemenuItems.forEach(function (item) {
+        item.addEventListener("click", function () {
+            closemenu();
+        });
+    });
 </script>
 
 <script>
@@ -251,15 +398,30 @@
 
 <!--------------script Toggle theme----------------------->
 <script>
-    function PageTransitions(){
-    const themeBtn = document.querySelector('.theme-btn');
-    themeBtn.addEventListener('click',() => {
-        let element = document.body;
-        element.classList.toggle('light-mode')
-    })
-}
+//  function PageTransitions(){
+//     const themeBtn = document.querySelector('.theme-btn');
+//     themeBtn.addEventListener('click',() => {
+//         let element = document.body;
+//         element.classList.toggle('light-mode')
+//     })
+// }
 
-PageTransitions();
+// PageTransitions();
+document.addEventListener('DOMContentLoaded', function () {
+const themeBtn = document.querySelector('.theme-btn');
+    const body = document.body;
+
+    themeBtn.addEventListener('click', function () {
+        console.log('running');
+        body.classList.toggle('light-mode');
+    });
+});
+
+
+
+
 </script>
+
+
 </body>
 </html>
